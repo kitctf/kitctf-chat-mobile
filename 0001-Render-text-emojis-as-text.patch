@@ -1,0 +1,75 @@
+From 284a8e4588aaf20a9b6025c30ba176a1d1709362 Mon Sep 17 00:00:00 2001
+From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
+Date: Wed, 16 Oct 2024 21:00:44 +0200
+Subject: [PATCH 1/5] Render text emojis as text
+
+---
+ app/components/markdown/markdown.tsx | 20 +++++++++++++++-----
+ app/utils/emoji/helpers.ts           | 18 ------------------
+ 2 files changed, 15 insertions(+), 23 deletions(-)
+
+diff --git a/app/components/markdown/markdown.tsx b/app/components/markdown/markdown.tsx
+index c507797ea..0c0060671 100644
+--- a/app/components/markdown/markdown.tsx
++++ b/app/components/markdown/markdown.tsx
+@@ -276,13 +276,23 @@ const Markdown = ({
+     };
+ 
+     const renderEmoji = ({context, emojiName, literal}: MarkdownEmojiRenderer) => {
++        if (literal.replace(/[^:]/g, '').length >= 2) {
++            return (
++                <Emoji
++                    emojiName={emojiName}
++                    literal={literal}
++                    testID='markdown_emoji'
++                    textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
++                />
++            );
++        }
+         return (
+-            <Emoji
+-                emojiName={emojiName}
+-                literal={literal}
++            <Text
++                style={computeTextStyle(textStyles, baseTextStyle, context)}
+                 testID='markdown_emoji'
+-                textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
+-            />
++            >
++                {literal}
++            </Text>
+         );
+     };
+ 
+diff --git a/app/utils/emoji/helpers.ts b/app/utils/emoji/helpers.ts
+index 1d8c22eb3..e0e376b66 100644
+--- a/app/utils/emoji/helpers.ts
++++ b/app/utils/emoji/helpers.ts
+@@ -17,24 +17,6 @@ const RE_NAMED_EMOJI = /(:([a-zA-Z0-9_+-]+):)/g;
+ const RE_UNICODE_EMOJI = emojiRegex();
+ 
+ const RE_EMOTICON: Record<string, RegExp> = {
+-    slightly_smiling_face: /(^|\s)(:-?\))(?=$|\s)/g, // :)
+-    wink: /(^|\s)(;-?\))(?=$|\s)/g, // ;)
+-    open_mouth: /(^|\s)(:o)(?=$|\s)/gi, // :o
+-    scream: /(^|\s)(:-o)(?=$|\s)/gi, // :-o
+-    smirk: /(^|\s)(:-?])(?=$|\s)/g, // :]
+-    smile: /(^|\s)(:-?d)(?=$|\s)/gi, // :D
+-    stuck_out_tongue_closed_eyes: /(^|\s)(x-d)(?=$|\s)/gi, // x-d
+-    stuck_out_tongue: /(^|\s)(:-?p)(?=$|\s)/gi, // :p
+-    rage: /(^|\s)(:-?[[@])(?=$|\s)/g, // :@
+-    slightly_frowning_face: /(^|\s)(:-?\()(?=$|\s)/g, // :(
+-    cry: /(^|\s)(:[`'’]-?\(|:&#x27;\(|:&#39;\()(?=$|\s)/g, // :`(
+-    confused: /(^|\s)(:-?\/)(?=$|\s)/g, // :/
+-    confounded: /(^|\s)(:-?s)(?=$|\s)/gi, // :s
+-    neutral_face: /(^|\s)(:-?\|)(?=$|\s)/g, // :|
+-    flushed: /(^|\s)(:-?\$)(?=$|\s)/g, // :$
+-    mask: /(^|\s)(:-x)(?=$|\s)/gi, // :-x
+-    heart: /(^|\s)(<3|&lt;3)(?=$|\s)/g, // <3
+-    broken_heart: /(^|\s)(<\/3|&lt;&#x2F;3)(?=$|\s)/g, // </3
+ };
+ 
+ // TODO This only check for named emojis: https://mattermost.atlassian.net/browse/MM-41505
+-- 
+2.46.1
+

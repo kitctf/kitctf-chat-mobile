@@ -1,0 +1,30 @@
+From 296e2c15ebfba8f33ad6ffea5c6ac2e8e4d7e3a1 Mon Sep 17 00:00:00 2001
+From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
+Date: Thu, 24 Oct 2024 19:45:37 +0200
+Subject: [PATCH 5/5] Add howto
+
+---
+ howto.md | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 howto.md
+
+diff --git a/howto.md b/howto.md
+new file mode 100644
+index 000000000..1b6ab1469
+--- /dev/null
++++ b/howto.md
+@@ -0,0 +1,11 @@
++### Base
++- `nix shell nixpkgs#nodejs_18 nixpkgs#bundler nixpkgs#ruby nixpkgs#fastlane nixpkgs#jdk21`
++- `export ANDROID_HOME=$HOME/.android`
++
++### Dev
++1. `pnpm run start`
++2. `pnpm run dev`
++
++### Release
++1. `cd fastlane`
++2. `NODE_ENV=production bundle exec fastlane android --env android.release`
+-- 
+2.46.1
+

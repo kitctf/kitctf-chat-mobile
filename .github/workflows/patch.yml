@@ -1,0 +1,43 @@
+name: Patch & Build mattermost app
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The mattermost version/commit hash'
+        required: true
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "tools platform-tools emulator"
+      - run: echo "$ANDROID_SDK_ROOT/emulator" >> $GITHUB_PATH
+      - run: emulator --help
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: "Patch 'n Build"
+        run: bash build.sh
+        env:
+          RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+          RELEASE_PASSWORD: ${{ secrets.RELEASE_PASSWORD }}
+          TARGET_REV: ${{ github.event.inputs.version }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KITCTF_Chat.apk
+          path: mattermost-mobile/KITCTF_Chat.apk
