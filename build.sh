@@ -38,7 +38,8 @@ popd || exit 2
     echo "MATTERMOST_RELEASE_KEY_ALIAS=kitctf_chat"  >> android/gradle.properties;
     echo "MATTERMOST_RELEASE_PASSWORD=${RELEASE_PASSWORD}";
 } >> android/gradle.properties
-
+sed -i 's/-Xmx2048m/-Xmx4096m/' android/gradle.properties
+sed -i 's/=512m/=1024m/' android/gradle.properties
 
 cd fastlane
 NODE_ENV=production bundle exec fastlane android build --env android.release
