@@ -15,8 +15,8 @@ index f46fd44b1..bb1db2f7f 100644
      const [error, setError] = useState(false);
      const fileId = useRef(generateId('uid')).current;
      const isTablet = useIsTablet();
--    const {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet));
-+    let {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet));
+-    const {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet, true));
++    let {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet, true));
 +    width -= 32; // margin right is actually larger in embeds
      const style = getStyleSheet(theme);
  
