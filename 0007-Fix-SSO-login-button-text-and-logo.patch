@@ -1,0 +1,27 @@
+From b8e1c3969f19b366819dbe202ea1644948877e90 Mon Sep 17 00:00:00 2001
+From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
+Date: Wed, 5 Mar 2025 23:18:16 +0100
+Subject: [PATCH 7/7] Fix SSO login button text and logo
+
+---
+ app/screens/login/sso_options.tsx | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/app/screens/login/sso_options.tsx b/app/screens/login/sso_options.tsx
+index 9ec3bc321..0abad917a 100644
+--- a/app/screens/login/sso_options.tsx
++++ b/app/screens/login/sso_options.tsx
+@@ -38,8 +38,8 @@ const SsoOptions = ({goToSso, ssoOnly, ssoOptions, theme}: Props) => {
+                 sso.compassIcon = 'lock';
+                 break;
+             case Sso.GITLAB:
+-                sso.text = formatMessage({id: 'mobile.login_options.gitlab', defaultMessage: 'GitLab'});
+-                sso.imageSrc = require('@assets/images/Icon_Gitlab.png');
++                sso.text = 'KITCTF SSO';
++                sso.imageSrc = require('@assets/images/logo.png');
+                 break;
+             case Sso.GOOGLE:
+                 sso.text = formatMessage({id: 'mobile.login_options.google', defaultMessage: 'Google'});
+-- 
+2.47.2
+

@@ -1,7 +1,7 @@
-From 296e2c15ebfba8f33ad6ffea5c6ac2e8e4d7e3a1 Mon Sep 17 00:00:00 2001
+From 4a2e0a47aec3cf68ec1aff874baa588c803fd5c6 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Thu, 24 Oct 2024 19:45:37 +0200
-Subject: [PATCH 5/5] Add howto
+Subject: [PATCH 5/7] Add howto
 
 ---
  howto.md | 11 +++++++++++
@@ -26,5 +26,5 @@ index 000000000..1b6ab1469
 +1. `cd fastlane`
 +2. `NODE_ENV=production bundle exec fastlane android --env android.release`
 -- 
-2.46.1
+2.47.2
 

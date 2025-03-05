@@ -1,69 +1,41 @@
-From 56f19e45c9b3a0815625de413fb546087e744cab Mon Sep 17 00:00:00 2001
+From 8b5b6e3167e986dca85f5f1def17b226bc31e6ee Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Thu, 17 Oct 2024 00:06:03 +0200
-Subject: [PATCH 3/5] Change name
+Subject: [PATCH 3/7] Change name
 
 ---
- android/app/google-services.json | 31 +++++++++++++++++++++++++++++++
- fastlane/.env.android.release    |  8 ++++----
- 2 files changed, 35 insertions(+), 4 deletions(-)
+ android/app/google-services.json | 2 +-
+ fastlane/.env.android.release    | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/android/app/google-services.json b/android/app/google-services.json
-index c60bbf15a..c2aefdf6e 100644
+index c60bbf15a..56fb33511 100644
 --- a/android/app/google-services.json
 +++ b/android/app/google-services.json
-@@ -68,6 +68,37 @@
-         }
-       }
-     },
-+    {
-+      "client_info": {
-+        "mobilesdk_app_id": "1:184930218130:android:c7debfa7ea3f75a7",
-+        "android_client_info": {
-+          "package_name": "de.kitctf.chat"
-+        }
-+      },
-+      "oauth_client": [
-+        {
-+          "client_id": "184930218130-8nahrspll1opff0uogtkh2qsv8coqngo.apps.googleusercontent.com",
-+          "client_type": 3
-+        }
-+      ],
-+      "api_key": [
-+        {
-+          "current_key": "AIzaSyCkZkU2ECVg-mmdCG5OoHHQXtKiENuvWPE"
-+        }
-+      ],
-+      "services": {
-+        "analytics_service": {
-+          "status": 2
-+        },
-+        "appinvite_service": {
-+          "status": 1,
-+          "other_platform_oauth_client": []
-+        },
-+        "ads_service": {
-+          "status": 2
-+        }
-+      }
-+    },
-     {
+@@ -41,7 +41,7 @@
        "client_info": {
-         "mobilesdk_app_id": "1:184930218130:android:2db4058a5b5d6506",
+         "mobilesdk_app_id": "1:184930218130:android:c7debfa7ea3f75a7",
+         "android_client_info": {
+-          "package_name": "com.mattermost.rnbeta"
++          "package_name": "de.kitctf.chat"
+         }
+       },
+       "oauth_client": [
 diff --git a/fastlane/.env.android.release b/fastlane/.env.android.release
-index 1fd349e49..52099d862 100644
+index 739951f3c..e7ff50691 100644
 --- a/fastlane/.env.android.release
 +++ b/fastlane/.env.android.release
-@@ -1,13 +1,13 @@
+@@ -1,5 +1,5 @@
  ## You invoke this with --env android.release on the fastlane command
 -APP_NAME=Mattermost
-+APP_NAME="KITCTF Chat"
++APP_NAME=KITCTF Chat
  APP_SCHEME=mattermost
  AWS_BUCKET_NAME=releases.mattermost.com
  AWS_FOLDER_NAME=mattermost-mobile
- AWS_REGION=us-east-1
+@@ -7,8 +7,8 @@ AWS_REGION=us-east-1
  BETA_BUILD=false
  BUILD_FOR_RELEASE=true
+ COLLECT_NETWORK_METRICS=false
 -MAIN_APP_IDENTIFIER=com.mattermost.rn
 -REPLACE_ASSETS=true
 +MAIN_APP_IDENTIFIER=de.kitctf.chat
@@ -71,7 +43,7 @@ index 1fd349e49..52099d862 100644
  SENTRY_ENABLED=true
  SENTRY_ORG=mattermost-mr
  SENTRY_PROJECT_ANDROID=mattermost-mobile-android
-@@ -16,4 +16,4 @@ SHOW_ONBOARDING=true
+@@ -17,4 +17,4 @@ SHOW_ONBOARDING=true
  SHOW_REVIEW=true
  SUPPLY_PACKAGE_NAME=com.mattermost.rn
  SUPPLY_TRACK=beta
@@ -79,5 +51,5 @@ index 1fd349e49..52099d862 100644
 \ No newline at end of file
 +SUPPLY_VALIDATE_ONLY=false
 -- 
-2.46.1
+2.47.2
 

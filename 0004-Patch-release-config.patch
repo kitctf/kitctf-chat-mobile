@@ -1,19 +1,19 @@
-From 95f8f347a06cb9d0e1621ecc4922f3c340c55cfe Mon Sep 17 00:00:00 2001
+From f424658d4c342455bf25a93025d82a95550eb4de Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Fri, 18 Oct 2024 14:52:30 +0200
-Subject: [PATCH 4/5] Patch release config
+Subject: [PATCH 4/7] Patch release config
 
 ---
  fastlane/.env.android.release | 16 ++++++++--------
  1 file changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/fastlane/.env.android.release b/fastlane/.env.android.release
-index 52099d862..43a8d0de3 100644
+index e7ff50691..91ea659e4 100644
 --- a/fastlane/.env.android.release
 +++ b/fastlane/.env.android.release
-@@ -1,19 +1,19 @@
+@@ -1,20 +1,20 @@
  ## You invoke this with --env android.release on the fastlane command
- APP_NAME="KITCTF Chat"
+ APP_NAME=KITCTF Chat
 -APP_SCHEME=mattermost
 -AWS_BUCKET_NAME=releases.mattermost.com
 -AWS_FOLDER_NAME=mattermost-mobile
@@ -24,6 +24,7 @@ index 52099d862..43a8d0de3 100644
 +#AWS_REGION=us-east-1
  BETA_BUILD=false
  BUILD_FOR_RELEASE=true
+ COLLECT_NETWORK_METRICS=false
  MAIN_APP_IDENTIFIER=de.kitctf.chat
  REPLACE_ASSETS=false
 -SENTRY_ENABLED=true
@@ -40,5 +41,5 @@ index 52099d862..43a8d0de3 100644
 -SUPPLY_VALIDATE_ONLY=false
 +SUPPLY_VALIDATE_ONLY=true
 -- 
-2.46.1
+2.47.2
 

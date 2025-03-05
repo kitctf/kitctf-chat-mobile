@@ -1,7 +1,7 @@
-From 284a8e4588aaf20a9b6025c30ba176a1d1709362 Mon Sep 17 00:00:00 2001
+From 944914ba76df9b9a3b6fc8a69cc658cd39940c43 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Wed, 16 Oct 2024 21:00:44 +0200
-Subject: [PATCH 1/5] Render text emojis as text
+Subject: [PATCH 1/7] Render text emojis as text
 
 ---
  app/components/markdown/markdown.tsx | 20 +++++++++++++++-----
@@ -9,10 +9,10 @@ Subject: [PATCH 1/5] Render text emojis as text
  2 files changed, 15 insertions(+), 23 deletions(-)
 
 diff --git a/app/components/markdown/markdown.tsx b/app/components/markdown/markdown.tsx
-index c507797ea..0c0060671 100644
+index e72a8a978..57c866ef5 100644
 --- a/app/components/markdown/markdown.tsx
 +++ b/app/components/markdown/markdown.tsx
-@@ -276,13 +276,23 @@ const Markdown = ({
+@@ -283,13 +283,23 @@ const Markdown = ({
      };
  
      const renderEmoji = ({context, emojiName, literal}: MarkdownEmojiRenderer) => {
@@ -71,5 +71,5 @@ index 1d8c22eb3..e0e376b66 100644
  
  // TODO This only check for named emojis: https://mattermost.atlassian.net/browse/MM-41505
 -- 
-2.46.1
+2.47.2
 
