@@ -1,25 +1,25 @@
-From 6bfdc667aefab2002b5055260ac4c020587acacc Mon Sep 17 00:00:00 2001
+From 077a31c40a430d69874d22bf0da67030b7593786 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
-Date: Wed, 5 Mar 2025 23:47:27 +0100
-Subject: [PATCH 8/8] Prefill chat.kitctf.de URL
+Date: Thu, 25 Sep 2025 21:06:45 +0200
+Subject: [PATCH] Prefill chat.kitctf.de URL
 
 ---
  app/screens/server/index.tsx | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/app/screens/server/index.tsx b/app/screens/server/index.tsx
-index 41ec13d35..315e1f953 100644
+index 591b63075..e03ef83a0 100644
 --- a/app/screens/server/index.tsx
 +++ b/app/screens/server/index.tsx
-@@ -86,7 +86,7 @@ const Server = ({
-     const [connecting, setConnecting] = useState(false);
+@@ -92,7 +92,7 @@ const Server = ({
      const [displayName, setDisplayName] = useState<string>('');
      const [buttonDisabled, setButtonDisabled] = useState(true);
+     const [preauthSecret, setPreauthSecret] = useState<string>('');
 -    const [url, setUrl] = useState<string>('');
 +    const [url, setUrl] = useState<string>('https://chat.kitctf.de');
      const [displayNameError, setDisplayNameError] = useState<string | undefined>();
      const [urlError, setUrlError] = useState<string | undefined>();
      const styles = getStyleSheet(theme);
 -- 
-2.47.2
+2.50.1
 
