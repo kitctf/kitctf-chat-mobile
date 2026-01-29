@@ -1,21 +1,29 @@
-From 944914ba76df9b9a3b6fc8a69cc658cd39940c43 Mon Sep 17 00:00:00 2001
+From bec359a9d9b8b0818c1a3d295ba640e1ad277692 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Wed, 16 Oct 2024 21:00:44 +0200
-Subject: [PATCH 1/7] Render text emojis as text
+Subject: [PATCH 1/8] Render text emojis as text
 
 ---
- app/components/markdown/markdown.tsx | 20 +++++++++++++++-----
+ app/components/markdown/markdown.tsx | 18 ++++++++++--------
  app/utils/emoji/helpers.ts           | 18 ------------------
- 2 files changed, 15 insertions(+), 23 deletions(-)
+ 2 files changed, 10 insertions(+), 26 deletions(-)
 
 diff --git a/app/components/markdown/markdown.tsx b/app/components/markdown/markdown.tsx
-index e72a8a978..57c866ef5 100644
+index 8add4accc..2159596a3 100644
 --- a/app/components/markdown/markdown.tsx
 +++ b/app/components/markdown/markdown.tsx
-@@ -283,13 +283,23 @@ const Markdown = ({
-     };
+@@ -338,14 +338,16 @@ const Markdown = ({
+     }, [baseTextStyle, theme]);
  
-     const renderEmoji = ({context, emojiName, literal}: MarkdownEmojiRenderer) => {
+     const renderEmoji = useCallback(({context, emojiName, literal}: MarkdownEmojiRenderer) => {
+-        return (
+-            <Emoji
+-                emojiName={emojiName}
+-                literal={literal}
+-                testID='markdown_emoji'
+-                textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
+-            />
+-        );
 +        if (literal.replace(/[^:]/g, '').length >= 2) {
 +            return (
 +                <Emoji
@@ -26,21 +34,9 @@ index e72a8a978..57c866ef5 100644
 +                />
 +            );
 +        }
-         return (
--            <Emoji
--                emojiName={emojiName}
--                literal={literal}
-+            <Text
-+                style={computeTextStyle(textStyles, baseTextStyle, context)}
-                 testID='markdown_emoji'
--                textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
--            />
-+            >
-+                {literal}
-+            </Text>
-         );
-     };
+     }, [baseTextStyle, textStyles]);
  
+     const renderHashtag = useCallback(({context, hashtag}: {context: string[]; hashtag: string}) => {
 diff --git a/app/utils/emoji/helpers.ts b/app/utils/emoji/helpers.ts
 index 1d8c22eb3..e0e376b66 100644
 --- a/app/utils/emoji/helpers.ts
@@ -71,5 +67,5 @@ index 1d8c22eb3..e0e376b66 100644
  
  // TODO This only check for named emojis: https://mattermost.atlassian.net/browse/MM-41505
 -- 
-2.47.2
+2.52.0
 

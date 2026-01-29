@@ -1,18 +1,18 @@
-From b8e1c3969f19b366819dbe202ea1644948877e90 Mon Sep 17 00:00:00 2001
+From e04fe7da069e00f0f8ea8a862dd4d92e46ff2e3c Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Wed, 5 Mar 2025 23:18:16 +0100
-Subject: [PATCH 7/7] Fix SSO login button text and logo
+Subject: [PATCH 7/8] Fix SSO login button text and logo
 
 ---
  app/screens/login/sso_options.tsx | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/app/screens/login/sso_options.tsx b/app/screens/login/sso_options.tsx
-index 9ec3bc321..0abad917a 100644
+index edc69fb34..1482f5a6a 100644
 --- a/app/screens/login/sso_options.tsx
 +++ b/app/screens/login/sso_options.tsx
-@@ -38,8 +38,8 @@ const SsoOptions = ({goToSso, ssoOnly, ssoOptions, theme}: Props) => {
-                 sso.compassIcon = 'lock';
+@@ -40,8 +40,8 @@ const SsoOptions = ({goToSso, intuneAuthService, isIntuneEnabled, ssoOnly, ssoOp
+                 }
                  break;
              case Sso.GITLAB:
 -                sso.text = formatMessage({id: 'mobile.login_options.gitlab', defaultMessage: 'GitLab'});
@@ -23,5 +23,5 @@ index 9ec3bc321..0abad917a 100644
              case Sso.GOOGLE:
                  sso.text = formatMessage({id: 'mobile.login_options.google', defaultMessage: 'Google'});
 -- 
-2.47.2
+2.52.0
 

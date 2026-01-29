@@ -1,26 +1,26 @@
-From 7e124154586582da985d638af42d1f12ed35df4e Mon Sep 17 00:00:00 2001
+From 43d014fa5fd607b340eeb86a80ddfb8376f3aca6 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Sun, 17 Nov 2024 22:48:54 +0100
-Subject: [PATCH 6/7] Fix embed width
+Subject: [PATCH 6/8] Fix embed width
 
 ---
  .../content/message_attachments/attachment_image/index.tsx     | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/app/components/post_list/post/body/content/message_attachments/attachment_image/index.tsx b/app/components/post_list/post/body/content/message_attachments/attachment_image/index.tsx
-index a00eeb36b..b6c28d820 100644
+index 2eea4f6e7..2b17db246 100644
 --- a/app/components/post_list/post/body/content/message_attachments/attachment_image/index.tsx
 +++ b/app/components/post_list/post/body/content/message_attachments/attachment_image/index.tsx
-@@ -57,7 +57,8 @@ const AttachmentImage = ({imageUrl, imageMetadata, layoutWidth, location, postId
-     const [error, setError] = useState(false);
-     const fileId = useRef(generateId('uid')).current;
+@@ -60,7 +60,8 @@ const AttachmentImage = ({imageUrl, imageMetadata, layoutWidth, location, postId
+         fileId.current = `uid-${urlSafeBase64Encode(imageUrl)}`;
+     }
      const isTablet = useIsTablet();
 -    const {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet, true));
 +    let {height, width} = calculateDimensions(imageMetadata.height, imageMetadata.width, layoutWidth || getViewPortWidth(false, isTablet, true));
 +    width -= 32; // margin right is actually larger in embeds
      const style = getStyleSheet(theme);
+     const progressiveImageStyle = useMemo(() => ({width, height}), [width, height]);
  
-     const onError = useCallback(() => {
 -- 
-2.47.2
+2.52.0
 

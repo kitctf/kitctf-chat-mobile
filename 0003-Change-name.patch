@@ -1,7 +1,7 @@
-From 8b5b6e3167e986dca85f5f1def17b226bc31e6ee Mon Sep 17 00:00:00 2001
+From 3e1a204bb5628ba88701462d7e1aa65b1444df20 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Thu, 17 Oct 2024 00:06:03 +0200
-Subject: [PATCH 3/7] Change name
+Subject: [PATCH 3/8] Change name
 
 ---
  android/app/google-services.json | 2 +-
@@ -51,5 +51,5 @@ index 739951f3c..e7ff50691 100644
 \ No newline at end of file
 +SUPPLY_VALIDATE_ONLY=false
 -- 
-2.47.2
+2.52.0
 

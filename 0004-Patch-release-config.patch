@@ -1,7 +1,7 @@
-From f424658d4c342455bf25a93025d82a95550eb4de Mon Sep 17 00:00:00 2001
+From 9be664d9d81d9a6b560ded974b546475a7e8c2bc Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Fri, 18 Oct 2024 14:52:30 +0200
-Subject: [PATCH 4/7] Patch release config
+Subject: [PATCH 4/8] Patch release config
 
 ---
  fastlane/.env.android.release | 16 ++++++++--------
@@ -41,5 +41,5 @@ index e7ff50691..91ea659e4 100644
 -SUPPLY_VALIDATE_ONLY=false
 +SUPPLY_VALIDATE_ONLY=true
 -- 
-2.47.2
+2.52.0
 

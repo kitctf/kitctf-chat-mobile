@@ -1,14 +1,14 @@
-From 0a874f2728b1f41dc7f10a0724a7eb20320b81b8 Mon Sep 17 00:00:00 2001
+From e1298a9d5b23cfe07e2902f4da6f9e32fa5f3c2e Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Thu, 11 Dec 2025 20:14:32 +0100
-Subject: [PATCH] Prefill chat.kitctf.de URL
+Subject: [PATCH 8/8] Prefill chat.kitctf.de URL
 
 ---
  app/screens/server/index.tsx | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/app/screens/server/index.tsx b/app/screens/server/index.tsx
-index 6b0515b00..de88e33d2 100644
+index 12f215aeb..5082cad62 100644
 --- a/app/screens/server/index.tsx
 +++ b/app/screens/server/index.tsx
 @@ -91,7 +91,7 @@ const Server = ({
@@ -21,5 +21,5 @@ index 6b0515b00..de88e33d2 100644
      const [urlError, setUrlError] = useState<string | undefined>();
      const [preauthSecretError, setPreauthSecretError] = useState<string | undefined>();
 -- 
-2.51.0
+2.52.0
 
