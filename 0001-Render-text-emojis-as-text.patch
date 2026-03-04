@@ -1,29 +1,21 @@
-From bec359a9d9b8b0818c1a3d295ba640e1ad277692 Mon Sep 17 00:00:00 2001
+From a62267478a39afa9c49a4db03f2ca6f0d7d0a152 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
-Date: Wed, 16 Oct 2024 21:00:44 +0200
-Subject: [PATCH 1/8] Render text emojis as text
+Date: Wed, 4 Mar 2026 14:00:43 +0100
+Subject: [PATCH] Render text emojis as text
 
 ---
- app/components/markdown/markdown.tsx | 18 ++++++++++--------
+ app/components/markdown/markdown.tsx | 19 +++++++++++++++----
  app/utils/emoji/helpers.ts           | 18 ------------------
- 2 files changed, 10 insertions(+), 26 deletions(-)
+ 2 files changed, 15 insertions(+), 22 deletions(-)
 
 diff --git a/app/components/markdown/markdown.tsx b/app/components/markdown/markdown.tsx
-index 8add4accc..2159596a3 100644
+index bc87eb5f0..a3e278485 100644
 --- a/app/components/markdown/markdown.tsx
 +++ b/app/components/markdown/markdown.tsx
-@@ -338,14 +338,16 @@ const Markdown = ({
+@@ -360,13 +360,24 @@ const Markdown = ({
      }, [baseTextStyle, theme]);
  
      const renderEmoji = useCallback(({context, emojiName, literal}: MarkdownEmojiRenderer) => {
--        return (
--            <Emoji
--                emojiName={emojiName}
--                literal={literal}
--                testID='markdown_emoji'
--                textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
--            />
--        );
 +        if (literal.replace(/[^:]/g, '').length >= 2) {
 +            return (
 +                <Emoji
@@ -34,9 +26,21 @@ index 8add4accc..2159596a3 100644
 +                />
 +            );
 +        }
+         return (
+-            <Emoji
+-                emojiName={emojiName}
+-                literal={literal}
++            <Text
++                style={computeTextStyle(textStyles, baseTextStyle, context)}
+                 testID='markdown_emoji'
+                 textStyle={computeTextStyle(textStyles, baseTextStyle, context)}
+-            />
++            >
++                {literal}
++            </Text>
+         );
      }, [baseTextStyle, textStyles]);
  
-     const renderHashtag = useCallback(({context, hashtag}: {context: string[]; hashtag: string}) => {
 diff --git a/app/utils/emoji/helpers.ts b/app/utils/emoji/helpers.ts
 index 1d8c22eb3..e0e376b66 100644
 --- a/app/utils/emoji/helpers.ts
