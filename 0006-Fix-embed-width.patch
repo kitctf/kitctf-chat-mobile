@@ -1,4 +1,4 @@
-From 43d014fa5fd607b340eeb86a80ddfb8376f3aca6 Mon Sep 17 00:00:00 2001
+From af1424c3ffcabdedd69984634f614138cbcd582b Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Sun, 17 Nov 2024 22:48:54 +0100
 Subject: [PATCH 6/8] Fix embed width
@@ -22,5 +22,5 @@ index 2eea4f6e7..2b17db246 100644
      const progressiveImageStyle = useMemo(() => ({width, height}), [width, height]);
  
 -- 
-2.52.0
+2.53.0
 

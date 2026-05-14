@@ -1,4 +1,4 @@
-From e04fe7da069e00f0f8ea8a862dd4d92e46ff2e3c Mon Sep 17 00:00:00 2001
+From 880523f610cab13bb4e9f22f3d494bdf635b5f0c Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Wed, 5 Mar 2025 23:18:16 +0100
 Subject: [PATCH 7/8] Fix SSO login button text and logo
@@ -23,5 +23,5 @@ index edc69fb34..1482f5a6a 100644
              case Sso.GOOGLE:
                  sso.text = formatMessage({id: 'mobile.login_options.google', defaultMessage: 'Google'});
 -- 
-2.52.0
+2.53.0
 

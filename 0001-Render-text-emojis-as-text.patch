@@ -1,7 +1,7 @@
-From a62267478a39afa9c49a4db03f2ca6f0d7d0a152 Mon Sep 17 00:00:00 2001
+From d8aabaf21e6ba5910575bec4ea6618839be21098 Mon Sep 17 00:00:00 2001
 From: I-Al-Istannen <i-al-istannen@users.noreply.github.com>
 Date: Wed, 4 Mar 2026 14:00:43 +0100
-Subject: [PATCH] Render text emojis as text
+Subject: [PATCH 1/8] Render text emojis as text
 
 ---
  app/components/markdown/markdown.tsx | 19 +++++++++++++++----
@@ -71,5 +71,5 @@ index 1d8c22eb3..e0e376b66 100644
  
  // TODO This only check for named emojis: https://mattermost.atlassian.net/browse/MM-41505
 -- 
-2.52.0
+2.53.0
 
